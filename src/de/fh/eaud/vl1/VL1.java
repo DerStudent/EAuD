@@ -31,7 +31,6 @@ public class VL1 {
 
 		for (int i = 1; i <= max; i++) {
 			mySet.add(i);
-			//System.out.println("Added: " + i);
 		}
 		for (Set<Integer> s : powerSet(mySet)) {
 			System.out.println(s);
