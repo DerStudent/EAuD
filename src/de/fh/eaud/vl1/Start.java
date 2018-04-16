@@ -1,25 +1,24 @@
 package de.fh.eaud.vl1;
 
+import de.fh.eaud.stopwatch.StopWatch;
+
 public class Start {
-	
-	private static final int MAX = 1;
+
+	private static final int MAX = 1000000;
 
 	public static void main(String[] args) {
+		StopWatch st = new StopWatch();
+		VL1 test = new VL1();
 		
+		st.start();
 		
+		//test.durchlaufen(MAX);
+		test.doppelTupel(MAX);
 		
-	}
-	
-	private void aufgabe1(int max) {
-		
-	}
-	
-	private void aufgabe2(int max) {
-		
-	}
-	
-	private void aufgabe3(int max) {
+		st.stop();
+		System.out.println("Die benötigte Zeit für " + MAX + " Elemente betrug: "+ st.getTimeNano() + " nano sec.");
+		System.out.println("Die benötigte Zeit für " + MAX + " Elemente betrug: "+ st.getTimeMiliSecs() + " mili sec.");
+		System.out.println("Die benötigte Zeit für " + MAX + " Elemente betrug: "+ st.getTimeSec() + " sec.");
 		
 	}
-
 }

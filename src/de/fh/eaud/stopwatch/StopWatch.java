@@ -13,20 +13,20 @@ public class StopWatch {
 	}
 
 	public void start() {
-		startTime = System.currentTimeMillis();
+		startTime = System.nanoTime();
 		running = true;
 	}
 
 	public void stop() {
-		stopTime = System.currentTimeMillis();
+		stopTime = System.nanoTime();
 		running = false;
 	}
 
 	
-	public long getTimeMili() {
+	public long getTimeNano() {
 		long time;
 		if (running) {
-			time = (System.currentTimeMillis() - startTime);
+			time = (System.nanoTime() - startTime);
 		} else {
 			time = (stopTime - startTime);
 		}
@@ -34,15 +34,29 @@ public class StopWatch {
 	}
 
 	
-	public long getTimeSecs() {
+	public long getTimeMiliSecs() {
 		long time;
 		if (running) {
-			time = ((System.currentTimeMillis() - startTime) / 1000);
+			time = ((System.nanoTime() - startTime) / 1000000);
 		} else {
-			time = ((stopTime - startTime) / 1000);
+			time = ((stopTime - startTime) / 1000000);
 		}
 		return time;
 	}
 	
+	public long getTimeSec() {
+		long time;
+		if (running) {
+			time = ((System.nanoTime() - startTime) / 1000000000);
+		} else {
+			time = ((stopTime - startTime) / 1000000000);
+		}
+		return time;
+	}
+	
+	public void reset() {
+		startTime = 0;
+		stopTime = 0;
+	}
 	
 }
